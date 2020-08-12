@@ -4,9 +4,18 @@ const PORT = process.env.PORT || 5000;
 var someObject = require('./vehicle.json')
 
 
-app.get('/vehicle', async (req,res)=>{
- res.status(200).json(someObject)
+app.get('/vehicle', async (req, res) => {
+    res.status(200).json(someObject)
 })
+
+//deployment
+if (process.env.NODE_ENV === "production") {
+    const root = path.join(__dirname, "..", "client", "build");
+    app.use(express.static(root));
+    app.get("*", (req, res) => {
+        res.sendFile("index.html", { root });
+    });
+};
 
 
 

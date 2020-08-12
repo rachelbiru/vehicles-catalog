@@ -2,37 +2,67 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.content {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+}
+select {
+  font-family: Cursive;
+  -moz-appearance: none;
+  border: 2px solid #f2ae67;
+  border-radius: 10%;
+  margin-right: 2% ;
+  width: 180px;
+  background-color: #aa5849;
+  color: #f2ae67;
+  text-align: center;
+    
+}
+.title{
+  font-family: fantasy;
+  text-shadow: 4px 4px #aa5849;
+  font-size: -webkit-xxx-large;
+  color: #f2ae67;
+padding: 4%;
+}
+.images{
+  height: 5vh;
+}
+.table {
+  background-color: transparent;
+  overflow: auto
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.divTitle{
+  width: 100%;
+  height: 25vh;
+}
+.selectVehicles{
+  width: 100%;
+  height: 25vh;
+}
+.tableVehicles{
+  width: 100%;
+  height: 47vh;
+  overflow: auto;
 }
