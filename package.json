@@ -17,7 +17,7 @@
     "client": "cd my-app && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "cd my-app && npm run build",
-    "heroku-postbuild": "npm run my-app-install && npm run build"
+    "heroku-postbuild": "npm run client-install && npm run build"
   },
   "keywords": [],
   "author": "",
