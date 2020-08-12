@@ -50,13 +50,13 @@ class App extends Component {
       if (this.vehicleSelected.make !== '' && this.vehicleSelected.model !== '' && this.vehicleSelected.year !== '') {
         return finalFilter
       }
-      else if (this.vehicleSelected.make !== '' && this.vehicleSelected.model !== '' && this.vehicleSelected.year === ''){
-        return  filterWithModel
+      else if (this.vehicleSelected.make !== '' && this.vehicleSelected.model !== '' && this.vehicleSelected.year === '') {
+        return filterWithModel
       }
-      else if (this.vehicleSelected.make !== '' && this.vehicleSelected.model === '' && this.vehicleSelected.year === ''){
-        return  filterWithMake
+      else if (this.vehicleSelected.make !== '' && this.vehicleSelected.model === '' && this.vehicleSelected.year === '') {
+        return filterWithMake
       }
-      
+
     }
 
     const filterByMake = (make) => {
@@ -77,93 +77,75 @@ class App extends Component {
         <video autoPlay muted loop id="myVideo">
           <source src="https://media.istockphoto.com/videos/driving-into-the-sunset-video-id635808578" type="video/mp4" />
         </video>
-       
+
         <div className='content'>
-           <div>
-          <h1 className='title'>Catalog Vehicle</h1>
-        </div>
-          <select onChange={(e) => {
-            this.vehicleSelected.make = e.target.value;
-            filterByMake(e.target.value)
-          }}>
-            <option>Make</option>
-            {uniqueCarMake.map(vehicle => (
-              <option key={vehicle.id} value={vehicle.make}>{vehicle.make}</option>
-            ))}
-          </select>
+          <div className='divTitle'>
+            <h1 className='title'>Catalog Vehicle</h1>
+          </div>
 
-          <select onChange={(e) => {
-            this.vehicleSelected.model = e.target.value;
-            filterByModel(e.target.value)
-          }} >
-            <option>Model</option>
-            {uniqueCarModels.map(vehicle => (
-              <option key={vehicle.id} >{vehicle.model}</option>
-            ))}
-          </select>
-
-          <select onChange={(e) => { this.vehicleSelected.year = e.target.value }}>
-            <option>Year</option>
-            {this.state.newVehiclesFilterByYear.map(vehicle => (
-              <option key={vehicle.id} >{vehicle.year}</option>
-            ))}
-          </select>
-
-          <button type="button" class="btn btn-outline-light" onClick={() => {
-            const finalFilter = filterSelected();
-            this.setState({ final: finalFilter })
-          }}>Search ...</button>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">Make</th >
-                <th scope="col">Model</th >
-                <th scope="col">Year</th>
-                <th scope="col">Price</th>
-                <th scope="col">img</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.final.map((vehicle, i) => (
-                <tr key={vehicle.id}>
-                  <td>{vehicle.make}</td>
-                  <td>{vehicle.model}</td>
-                  <td>{vehicle.year}</td>
-                  <td>{vehicle.price}</td>
-                  <td><img className='images' src={vehicle.image} alt='' /></td>
-                </tr>
-
+          <div className='selectVehicles'>
+            <select onChange={(e) => {
+              this.vehicleSelected.make = e.target.value;
+              filterByMake(e.target.value)
+            }}>
+              <option>Make</option>
+              {uniqueCarMake.map(vehicle => (
+                <option key={vehicle.id} value={vehicle.make}>{vehicle.make}</option>
               ))}
-            </tbody>
-          </table>
+            </select>
+
+            <select onChange={(e) => {
+              this.vehicleSelected.model = e.target.value;
+              filterByModel(e.target.value)
+            }} >
+              <option>Model</option>
+              {uniqueCarModels.map(vehicle => (
+                <option key={vehicle.id} >{vehicle.model}</option>
+              ))}
+            </select>
+
+            <select onChange={(e) => { this.vehicleSelected.year = e.target.value }}>
+              <option>Year</option>
+              {this.state.newVehiclesFilterByYear.map(vehicle => (
+                <option key={vehicle.id} >{vehicle.year}</option>
+              ))}
+            </select>
+            <br /><br />
+            <button type="button" class="btn btn-outline-light" onClick={() => {
+              const finalFilter = filterSelected();
+              this.setState({ final: finalFilter })
+            }}>Search ...</button>
+          </div>
+
+          <div className='tableVehicals'>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Make</th >
+                  <th scope="col">Model</th >
+                  <th scope="col">Year</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">img</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.final.map((vehicle, i) => (
+                  <tr key={vehicle.id}>
+                    <td>{vehicle.make}</td>
+                    <td>{vehicle.model}</td>
+                    <td>{vehicle.year}</td>
+                    <td>{vehicle.price}</td>
+                    <td><img className='images' src={vehicle.image} alt='' /></td>
+                  </tr>
+
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    );
-
+    )
   }
-
 }
-export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  export default App;
 

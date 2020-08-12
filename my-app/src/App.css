@@ -1,42 +1,9 @@
 .App {
   text-align: center;
-  
+  /* height: 100vh; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 * {
   box-sizing: border-box;
@@ -62,31 +29,55 @@ body {
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
   width: 100%;
-  padding: 20px;
-  height: 100vh;
+  /* padding: 20px; */
+  /* height: 100vh; */
 }
 select {
   font-family: Cursive;
   -moz-appearance: none;
-  border: 0;
+  border: 2px solid #f2ae67;
   border-radius: 10%;
-  font-size: 20px;
+  /* font-size: 20px; */
   margin-right: 2% ;
   width: 180px;
+  background-color: #aa5849;
+  color: #f2ae67;
+  text-align: center;
+  
   
 }
 .title{
-  font-family: Cursive;
-  margin: 60px;
-  text-shadow: 4px 4px #190b0b;
+  font-family: fantasy;
+  /* margin: 60px; */
+  text-shadow: 4px 4px #aa5849;
+  font-size: -webkit-xxx-large;
+  color: #f2ae67;
+      /* overflow: scroll; */
+padding: 4%;
 }
 .images{
-  width: 138px;
-  height: 64px;
+  /* width: 138px; */
+  height: 5vh;
 }
 .table {
-  width: 53%;
-  margin-bottom: 1rem;
+  /* width: 53%;
+  margin-bottom: 1rem; */
   background-color: transparent;
-  margin: 7% auto;
+  overflow: auto
+  /* margin: 7% auto; */
+}
+
+.divTitle{
+  width: 100%;
+  height: 25vh;
+}
+.selectVehicles{
+  width: 100%;
+  height: 25vh;
+}
+.tableVehicles{
+  width: 100%;
+  height: 47vh;
+  overflow: auto;
+
 }
