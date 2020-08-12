@@ -1,7 +1,8 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 const PORT = process.env.PORT || 5000;
-var someObject = require('./vehicle.json')
+const someObject = require('./vehicle.json');
+const path = require('path');
 
 
 app.get('/vehicle', async (req, res) => {
