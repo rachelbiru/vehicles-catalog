@@ -272,8 +272,8 @@
         },
         {
             "make": "RANGE ROVER",
-            "year": " ",
-            "model": "",
+            "year": 2018,
+            "model": "Range Rover SPORT",
             "image": "",
             "price": "",
             "fuel": "oil",
@@ -282,20 +282,20 @@
         },
         {
             "make": "RANGE ROVER",
-            "year": " ",
-            "model": "",
-            "image": "",
-            "price": "",
+            "year": 2019,
+            "model": "Range Rover Rapid",
+            "image": "range-rover-rapid-600w-2205691.jpg",
+            "price": "$300,000",
             "fuel": "oil",
             "transmission": "Automatic",
             "id": 29
         },
         {
             "make": "RANGE ROVER",
-            "year": " ",
-            "model": "",
+            "year": 2020,
+            "model": "RANGE ROVER VELAR",
             "image": "",
-            "price": "",
+            "price": "$350,000",
             "fuel": "oil",
             "transmission": "Automatic",
             "id": 30

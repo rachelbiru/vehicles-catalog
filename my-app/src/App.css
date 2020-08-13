@@ -1,9 +1,6 @@
 .App {
   text-align: center;
-  /* height: 100vh; */
 }
-
-
 
 * {
   box-sizing: border-box;
@@ -25,46 +22,35 @@ body {
 
 .content {
   position: fixed;
-  /* top: 30%; */
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
   width: 100%;
-  /* padding: 20px; */
-  /* height: 100vh; */
 }
 select {
   font-family: Cursive;
   -moz-appearance: none;
   border: 2px solid #f2ae67;
   border-radius: 10%;
-  /* font-size: 20px; */
   margin-right: 2% ;
   width: 180px;
   background-color: #aa5849;
   color: #f2ae67;
   text-align: center;
-  
-  
+    
 }
 .title{
   font-family: fantasy;
-  /* margin: 60px; */
   text-shadow: 4px 4px #aa5849;
   font-size: -webkit-xxx-large;
   color: #f2ae67;
-      /* overflow: scroll; */
 padding: 4%;
 }
 .images{
-  /* width: 138px; */
   height: 5vh;
 }
 .table {
-  /* width: 53%;
-  margin-bottom: 1rem; */
   background-color: transparent;
   overflow: auto
-  /* margin: 7% auto; */
 }
 
 .divTitle{
@@ -79,5 +65,4 @@ padding: 4%;
   width: 100%;
   height: 47vh;
   overflow: auto;
-
 }
