@@ -9,7 +9,6 @@ app.get('/vehicle', async (req,res)=>{
 })
 
 
-
 app.listen(PORT, () => {
     console.log(`app running on port ${PORT}`)
 });
