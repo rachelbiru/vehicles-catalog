@@ -5,7 +5,7 @@ const someObject = require('./vehicle.json');
 const path = require('path');
 
 
-app.get('/vehicle', async (req, res) => {
+app.get('/vehicles', async (req, res) => {
     res.status(200).json(someObject)
 })
 
@@ -17,7 +17,6 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile("index.html", { root });
     });
 };
-
 
 
 app.listen(PORT, () => {

@@ -1,5 +1,5 @@
 {
-    "vehicle": [
+    "vehicles": [
         {
             "make": "Toyota",
             "year": 2010,
@@ -194,8 +194,8 @@
             "make": "Suzuki",
             "year": 2000,
             "model": "Ignis",
-            "image": "",
-            "price": "",
+            "image": "suaoki-Ignis-2020.jpg",
+            "price": "$50,550",
             "fuel": "oil",
             "transmission": "Automatic",
             "id": 20
@@ -204,8 +204,8 @@
             "make": "Suzuki",
             "year": 2018,
             "model": "Jimny",
-            "image": "",
-            "price": "",
+            "image": "suzoki-Jimny-2018.jpg",
+            "price": "$35,000",
             "fuel": "oil",
             "transmission": "Automatic",
             "id": 21
@@ -214,8 +214,8 @@
             "make": "Kia",
             "year": 2018,
             "model": "Sportage",
-            "image": "",
-            "price": "",
+            "image": "2018_kia_sportage_angularfront.jpg",
+            "price": "$15,000",
             "fuel": "oil",
             "transmission": "Automatic",
             "id": 22
@@ -224,18 +224,18 @@
             "make": "Kia",
             "year": 2020,
             "model": "Picante",
-            "image": "",
-            "price": "",
+            "image": "2018_kia_sportage_angularfront.jpg",
+            "price": "$30,000",
             "fuel": "oil",
             "transmission": "Automatic",
             "id": 23
         },
         {
             "make": "Kia",
-            "year": 2001,
+            "year": 2018,
             "model": "Picante",
-            "image": "",
-            "price": "",
+            "image": "kia_picanto-2018.jpg",
+            "price": "$15,700",
             "fuel": "oil",
             "transmission": "Automatic",
             "id": 24
@@ -244,41 +244,22 @@
             "make": "Kia",
             "year": 2015,
             "model": "Picante",
-            "image": "",
-            "price": "",
+            "image": "kia_picanto_2015.jpg",
+            "price": "$7,800",
             "fuel": "oil",
             "transmission": "Automatic",
             "id": 25
         },
-        {
-            "make": "Kia",
-            "year": " ",
-            "model": "",
-            "image": "",
-            "price": "",
-            "fuel": "oil",
-            "transmission": "Automatic",
-            "id": 26
-        },
-        {
-            "make": "Kia",
-            "year": 2020,
-            "model": "Soul",
-            "image": "",
-            "price": "",
-            "fuel": "oil",
-            "transmission": "Automatic",
-            "id": 27
-        },
+
         {
             "make": "RANGE ROVER",
             "year": 2018,
             "model": "Range Rover SPORT",
-            "image": "",
-            "price": "",
+            "image": "range-rover-2018.jpg",
+            "price": "$80,390",
             "fuel": "oil",
             "transmission": "Automatic",
-            "id": 28
+            "id": 26
         },
         {
             "make": "RANGE ROVER",
@@ -288,17 +269,17 @@
             "price": "$300,000",
             "fuel": "oil",
             "transmission": "Automatic",
-            "id": 29
+            "id": 27
         },
         {
             "make": "RANGE ROVER",
             "year": 2020,
             "model": "RANGE ROVER VELAR",
-            "image": "",
-            "price": "$350,000",
+            "image": "Land_Rover-Range-Rover-Velar-P340-R-Dynamic-S-2020.jpg",
+            "price": "$400,000",
             "fuel": "oil",
             "transmission": "Automatic",
-            "id": 30
+            "id": 28
         }
     ]
 }
