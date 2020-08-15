@@ -1,5 +1,4 @@
 import React from 'react';
-// import './ShowVehicles.css';
 import '../../App.css'
 /**
 * @author
@@ -8,9 +7,11 @@ import '../../App.css'
 
 const ShowVehicles = (props) => {
     return (
-    
-            <div className='tableVehicals'>
-                <table className="table table-striped">
+
+        <div className='tableVehicals'>
+            {props.finalFilter.map(vehicle => (
+
+                <table key={vehicle.id} className="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">Make</th >
@@ -21,18 +22,18 @@ const ShowVehicles = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {props.finalFilter.map((vehicle, i) => (
-                            <tr key={vehicle.id}>
-                                <td>{vehicle.make}</td>
-                                <td>{vehicle.model}</td>
-                                <td>{vehicle.year}</td>
-                                <td>{vehicle.price}</td>
-                                <td><img className='images' src={vehicle.image} alt={vehicle.model} /></td>
-                            </tr>
-                        ))}
+                        <tr key={vehicle.id}>
+                            <td>{vehicle.make}</td>
+                            <td>{vehicle.model}</td>
+                            <td>{vehicle.year}</td>
+                            <td>{vehicle.price}</td>
+                            <td><img className='images' src={vehicle.image} alt={vehicle.model} /></td>
+                        </tr>
                     </tbody>
                 </table>
-            </div>
+            ))}
+
+        </div>
     )
 
 }

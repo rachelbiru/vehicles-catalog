@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import ShowVehicles from '../ShowVehicles/ShowVehicles';
-// import './filterVehicles.css'
 import '../../App.css'
 
 /**
@@ -66,7 +65,6 @@ const FilterVehicles = (props) => {
             return filterWithMake
         }
     }
-
 
 
     return (
