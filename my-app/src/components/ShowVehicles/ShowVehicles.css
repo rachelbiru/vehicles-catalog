@@ -1,0 +1,23 @@
+
+  .table {
+    background-color: transparent;
+    overflow: auto
+  }
+  
+  .divTitle{
+    width: 100%;
+    height: 25vh;
+  }
+
+  .tableVehicles{
+    width: 100%;
+    height: 47vh;
+    overflow: auto;
+    position: absolute;
+    top:5%;
+    background-color: brown;
+  } 
+
+  .images{
+    height: 5vh;
+  }

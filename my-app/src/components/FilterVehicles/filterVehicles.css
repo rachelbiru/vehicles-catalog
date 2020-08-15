@@ -1,0 +1,55 @@
+.filter{
+    box-sizing: border-box;
+    width:500px;
+    height: 600px ;
+    background-color: #f1f1f1;
+
+    
+
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+  
+  .content {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+  }
+  .divTitle{
+    width: 100%;
+    height: 25vh;
+  }
+  .selectVehicles{
+    width: 100%;
+    height: 25vh;
+    position: absolute;
+    left: 10%;  
+    top: 100%;
+  }
+
+  .title{
+    font-family: fantasy;
+    text-shadow: 4px 4px #aa5849;
+    font-size: -webkit-xxx-large;
+    color: #f2ae67;
+  padding: 4%;
+  position: absolute;
+  left: 145px;
+ 
+  }
+
+select {
+    font-family: Cursive;
+    -moz-appearance: none;
+    border: 2px solid #f2ae67;
+    border-radius: 10%;
+    margin-right: 2% ;
+    width: 180px;
+    background-color: #aa5849;
+    color: #f2ae67;
+    text-align: center;
+  }

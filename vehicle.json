@@ -1,0 +1,285 @@
+{
+    "vehicles": [
+        {
+            "make": "Toyota",
+            "year": 2010,
+            "model": "Toyota Corolla",
+            "image": "2010_toyota_corolla.jpeg",
+            "price": "$5,872 - $7,551",
+            "fuel": "petrol",
+            "transmission": "Automat",
+            "id": 1
+        },
+        {
+            "make": "Toyota",
+            "year": 2020,
+            "model": "Toyota Corolla",
+            "image": "toyota_corolla_2020.png",
+            "price": "$25,000",
+            "fuel": "petrol",
+            "transmission": "manual",
+            "id": 3
+        },
+        {
+            "make": "Toyota",
+            "year": 2005,
+            "model": "Toyota Corolla",
+            "image": "2005-_Toyota_Corolla.jpg",
+            "price": "$5,872 - $7,551",
+            "fuel": "oil",
+            "transmission": "Automat",
+            "id": 4
+        },
+        {
+            "make": "Toyota",
+            "year": 2020,
+            "model": "Toyota Yaris",
+            "image": "toyota_yaris_2020.png",
+            "price": "$95,000",
+            "fuel": "electric",
+            "transmission": "Automatic",
+            "id": 2
+        },
+        {
+            "make": "Toyota",
+            "year": 2019,
+            "model": "Toyota Camry",
+            "image": "toyota_camry.jpg",
+            "price": "$35,555",
+            "fuel": "oil",
+            "transmission": "Automat",
+            "id": 5
+        },
+        {
+            "make": "BMW",
+            "year": 2020,
+            "model": "X1 Sports Activity Vehicle",
+            "image": "BMW-X1-2020.jpg",
+            "price": "$401,000",
+            "fuel": "oil",
+            "transmission": "automatic",
+            "id": 6
+        },
+        {
+            "make": "BMW",
+            "year": 2018,
+            "model": "3 Series Sedan",
+            "image": "BMW-3X-2018.jpg",
+            "price": "$80,000",
+            "fuel": "oil",
+            "transmission": "automat",
+            "id": 7
+        },
+        {
+            "make": "BMW",
+            "year": 2020,
+            "model": "BMW i3",
+            "image": "BMV_I3_2020.jpg",
+            "price": "$300,450",
+            "fuel": "electric",
+            "transmission": "automat",
+            "id": 8
+        },
+        {
+            "make": "BMW",
+            "year": 2019,
+            "model": "BMW 2 Series Cabriolet",
+            "image": "BMW-2109.png",
+            "price": "$490,500",
+            "fuel": "oil",
+            "transmission": "automat",
+            "id": 9
+        },
+        {
+            "make": "BMW",
+            "year": 2015,
+            "model": "BMW M3",
+            "image": "BMW M3 2015.jpg",
+            "price": "45,200$",
+            "fuel": "oil",
+            "transmission": "automatic",
+            "id": 10
+        },
+        {
+            "make": "MAZDA",
+            "year": 2020,
+            "model": "Mazda 3",
+            "image": "mazda3-2020.jpg",
+            "price": "$45,000",
+            "fuel": "petrol",
+            "transmission": "automatic",
+            "id": 11
+        },
+        {
+            "make": "MAZDA",
+            "year": 2016,
+            "model": "Mazda 3",
+            "image": "mazda3-2016.jpg",
+            "price": "$20,000",
+            "fuel": "oil",
+            "transmission": "automat",
+            "id": 12
+        },
+        {
+            "make": "MAZDA",
+            "year": 2020,
+            "model": "Mazda 6",
+            "image": "mazda6-2020.jpg",
+            "price": "$50,000",
+            "fuel": "petrol",
+            "transmission": "petrol",
+            "id": 13
+        },
+        {
+            "make": "MAZDA",
+            "year": 2017,
+            "model": "Mazda 6",
+            "image": "mazda6-2017.jpg",
+            "price": "$26,000",
+            "fuel": "petrol",
+            "transmission": "Automat",
+            "id": 14
+        },
+        {
+            "make": "Hyundai",
+            "year": 2020,
+            "model": "Kona Hybrid",
+            "image": "kona-banner-d2020.jpg",
+            "price": "$40,000",
+            "fuel": "oil",
+            "transmission": "menual",
+            "id": 15
+        },
+        {
+            "make": "Hyundai",
+            "year": 2015,
+            "model": "i20",
+            "image": "hyundai-i20-2015-Rear.jpg",
+            "price": "$9,000$",
+            "fuel": "oil",
+            "transmission": "automat",
+            "id": 16
+        },
+        {
+            "make": "Hyundai",
+            "year": 2017,
+            "model": "i25",
+            "image": "hyundai-i25-2017-Rear.jpg",
+            "price": "$17,200",
+            "fuel": "oil",
+            "transmission": "automat",
+            "id": 17
+        },
+        {
+            "make": "Hyundai",
+            "year": 2018,
+            "model": "i30",
+            "image": "hyundai-i30-2018-Rear.jpg",
+            "price": "$27,500",
+            "fuel": "oil",
+            "transmission": "automat",
+            "id": 18
+        },
+        {
+            "make": "Suzuki",
+            "year": 2019,
+            "model": "swift",
+            "image": "7923_suzuki_aswift_2019.png",
+            "price": "$20,000",
+            "fuel": "oil",
+            "transmission": "Automatic",
+            "id": 19
+        },
+        {
+            "make": "Suzuki",
+            "year": 2000,
+            "model": "Ignis",
+            "image": "suaoki-Ignis-2020.jpg",
+            "price": "$50,550",
+            "fuel": "oil",
+            "transmission": "Automatic",
+            "id": 20
+        },
+        {
+            "make": "Suzuki",
+            "year": 2018,
+            "model": "Jimny",
+            "image": "suzoki-Jimny-2018.jpg",
+            "price": "$35,000",
+            "fuel": "oil",
+            "transmission": "Automatic",
+            "id": 21
+        },
+        {
+            "make": "Kia",
+            "year": 2018,
+            "model": "Sportage",
+            "image": "2018_kia_sportage_angularfront.jpg",
+            "price": "$15,000",
+            "fuel": "oil",
+            "transmission": "Automatic",
+            "id": 22
+        },
+        {
+            "make": "Kia",
+            "year": 2020,
+            "model": "Picante",
+            "image": "2018_kia_sportage_angularfront.jpg",
+            "price": "$30,000",
+            "fuel": "oil",
+            "transmission": "Automatic",
+            "id": 23
+        },
+        {
+            "make": "Kia",
+            "year": 2018,
+            "model": "Picante",
+            "image": "kia_picanto-2018.jpg",
+            "price": "$15,700",
+            "fuel": "oil",
+            "transmission": "Automatic",
+            "id": 24
+        },
+        {
+            "make": "Kia",
+            "year": 2015,
+            "model": "Picante",
+            "image": "kia_picanto_2015.jpg",
+            "price": "$7,800",
+            "fuel": "oil",
+            "transmission": "Automatic",
+            "id": 25
+        },
+
+        {
+            "make": "RANGE ROVER",
+            "year": 2018,
+            "model": "Range Rover SPORT",
+            "image": "range-rover-2018.jpg",
+            "price": "$80,390",
+            "fuel": "oil",
+            "transmission": "Automatic",
+            "id": 26
+        },
+        {
+            "make": "RANGE ROVER",
+            "year": 2019,
+            "model": "Range Rover Rapid",
+            "image": "range-rover-rapid-600w-2205691.jpg",
+            "price": "$300,000",
+            "fuel": "oil",
+            "transmission": "Automatic",
+            "id": 27
+        },
+        {
+            "make": "RANGE ROVER",
+            "year": 2020,
+            "model": "RANGE ROVER VELAR",
+            "image": "Land_Rover-Range-Rover-Velar-P340-R-Dynamic-S-2020.jpg",
+            "price": "$400,000",
+            "fuel": "oil",
+            "transmission": "Automatic",
+            "id": 28
+        }
+    ]
+}
