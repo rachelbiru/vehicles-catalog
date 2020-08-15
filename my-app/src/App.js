@@ -10,6 +10,7 @@ import GetVehicles from './components/GetVehicles/GetVehicles';
 const App = (props) => {
   return (
     <div>
+    
       <GetVehicles/>
     </div>
   )
