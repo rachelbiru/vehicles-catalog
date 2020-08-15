@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import CarCatalog from './components/CarCatalog';
+import GetVehicles from './components/GetVehicles/GetVehicles';
 
 /**
 * @author
@@ -10,7 +10,7 @@ import CarCatalog from './components/CarCatalog';
 const App = (props) => {
   return (
     <div>
-      <CarCatalog />
+      <GetVehicles/>
     </div>
   )
 

@@ -16,8 +16,7 @@
     "server": "nodemon server.js",
     "client": "cd my-app && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "cd my-app && npm run build",
-    "heroku-postbuild": "npm run client && npm run build"
+    "heroku-postbuild": "cd my-app && npm i && npm run build"
   },
   "keywords": [],
   "author": "",
