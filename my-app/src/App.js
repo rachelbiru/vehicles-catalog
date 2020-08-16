@@ -1,6 +1,10 @@
 import React from 'react';
 import './App.css';
-import GetVehicles from './components/GetVehicles/GetVehicles';
+import GetVehicles from './catalog/GetVehicles/GetVehicles';
+import Login from './login/login';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Register from './login/register';
+
 
 /**
 * @author
@@ -10,7 +14,13 @@ import GetVehicles from './components/GetVehicles/GetVehicles';
 const App = (props) => {
   return (
     <div>
-      <GetVehicles/>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' component={Login} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/GetVehicles' component={GetVehicles} />
+        </Switch>
+      </BrowserRouter>
     </div>
   )
 
