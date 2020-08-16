@@ -1,5 +1,4 @@
 import React from 'react';
-// import './ShowVehicles.css';
 import '../../App.css'
 /**
 * @author
@@ -21,7 +20,7 @@ const ShowVehicles = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {props.finalFilter.map((vehicle, i) => (
+                        {props.finalFilter.map(vehicle => (
                             <tr key={vehicle.id}>
                                 <td>{vehicle.make}</td>
                                 <td>{vehicle.model}</td>

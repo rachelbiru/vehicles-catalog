@@ -1,6 +1,5 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import ShowVehicles from '../ShowVehicles/ShowVehicles';
-// import './filterVehicles.css'
 import '../../App.css'
 
 /**
@@ -55,18 +54,17 @@ const FilterVehicles = (props) => {
         const filterWithMake = vehicles.filter(vehicle => vehicle.make === makeSelected)
         const filterWithModel = filterWithMake.filter(vehicle => vehicle.model === modelSelected)
         const finalFilter = filterWithModel.filter(vehicle => vehicle.year === Number(yearSelected))
-        if (makeSelected !== '' && modelSelected !== '' && yearSelected !== '') {
+
+        if (makeSelected !== undefined && modelSelected !== undefined && yearSelected !== undefined) {
             return finalFilter
         }
-        else if (makeSelected !== '' && modelSelected !== '' && yearSelected === '') {
+        else if (makeSelected !== undefined && modelSelected !== undefined && yearSelected === undefined) {
             return filterWithModel
         }
-        else if (makeSelected !== '' && modelSelected === '' && yearSelected === '') {
+        else {
             return filterWithMake
         }
-
     }
-
 
 
     return (
@@ -115,7 +113,7 @@ const FilterVehicles = (props) => {
                         setFinalFilter(final);
                     }}>Search ...</button>
                 </div>
-                <ShowVehicles finalFilter={finalFilter}/>
+                <ShowVehicles finalFilter={finalFilter} />
             </div>
 
         </div>
