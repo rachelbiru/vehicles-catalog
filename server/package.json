@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "cars-catalog",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,7 +7,8 @@
     "concurrently": "^5.3.0",
     "express": "^4.17.1",
     "fetch": "^1.1.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -15,7 +16,15 @@
     "start": "node server.js",
     "server": "nodemon server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rachelbiru/vehicles-catalog.git"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rachelbiru/vehicles-catalog/issues"
+  },
+  "homepage": "https://github.com/rachelbiru/vehicles-catalog#readme"
 }
