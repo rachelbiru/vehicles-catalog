@@ -9,7 +9,7 @@ import './getVehicles.css'
 * @function GetVehicles
 **/
 
-const GetVehicles = (props) => {
+const GetVehicles = () => {
     const [vehicles, setVehicles] = useState([]);
 
     useEffect(() => {

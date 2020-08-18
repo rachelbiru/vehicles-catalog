@@ -51,19 +51,17 @@ const FilterVehicles = (props) => {
     const uniqueCarModels = getUnique(filterVehiclesByMake, "model")
 
     const filterSelected = () => {
-        const filterWithMake = vehicles.filter(vehicle => vehicle.make === makeSelected)
-        const filterWithModel = filterWithMake.filter(vehicle => vehicle.model === modelSelected)
-        const finalFilter = filterWithModel.filter(vehicle => vehicle.year === Number(yearSelected))
+        const finalFilter = filterVehiclesByModel.filter(vehicle => vehicle.year === Number(yearSelected))
 
-        if (makeSelected !== undefined && modelSelected !== undefined && yearSelected !== undefined) {
+        if (makeSelected && modelSelected && yearSelected) {
             return finalFilter
         }
-        else if (makeSelected !== undefined && modelSelected !== undefined && yearSelected === undefined) {
-            return filterWithModel
+        else if (makeSelected && modelSelected && !yearSelected) {
+            return filterVehiclesByModel
+
         }
-        else {
-            return filterWithMake
-        }
+        return filterVehiclesByMake
+
     }
 
 
@@ -112,6 +110,7 @@ const FilterVehicles = (props) => {
                         const final = filterSelected();
                         setFinalFilter(final);
                     }}>Search ...</button>
+                    
                 </div>
                 <ShowVehicles finalFilter={finalFilter} />
             </div>

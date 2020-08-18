@@ -1,11 +1,12 @@
 {
   "name": "cars-catalog",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "server": "cd server && nodemon server.js",
+    "start": "node src/server.js",
+    "server": "cd server && nodemon src/server.js",
     "client": "cd my-app && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd my-app && npm i && npm run build"
@@ -20,6 +21,5 @@
   "bugs": {
     "url": "https://github.com/rachelbiru/vehicles-catalog/issues"
   },
-  "homepage": "https://github.com/rachelbiru/vehicles-catalog#readme",
-  "description": ""
+  "homepage": "https://github.com/rachelbiru/vehicles-catalog#readme"
 }
