@@ -7,7 +7,6 @@ import Login from './components/user/login';
 import HomePage from './components/HomePage';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
-import FacebookLogin from './components/user/FacebookLogin';
 
 
 /**
