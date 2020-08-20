@@ -2,12 +2,14 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const someObject = require('./vehicle.json');
+const verifyToken = require("./controller/verfyToken");
+
 const path = require('path');
 app.use(express.json());
 
 require('./database');
 
-app.get('/vehicles', async (req, res) => {
+app.get('/vehicles',verifyToken, async (req, res) => {
   await res.status(200).json(someObject)
 })
 

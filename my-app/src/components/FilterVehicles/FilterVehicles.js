@@ -17,7 +17,9 @@ const FilterVehicles = (props) => {
     const [yearSelected, setYearSelected] = useState();
 
     const vehicles = props.vehicles;
+const allVehicles = ()=>{
 
+}
     const filterByMake = (make) => {
         let tmp = [...vehicles];
         const newVehicles = tmp.filter(vehicle => { return vehicle.make === make })
@@ -60,10 +62,14 @@ const FilterVehicles = (props) => {
             return filterVehiclesByModel
 
         }
-        return filterVehiclesByMake
+        else if (makeSelected && !modelSelected && !yearSelected){
+            return filterVehiclesByMake
+        }
+        return showAllVehicles
 
     }
 
+    const disabled = !makeSelected
 
     return (
         <div className="filter">
@@ -106,7 +112,7 @@ const FilterVehicles = (props) => {
                         ))}
                     </select>
                     <br /><br />
-                    <button type="button" className="btn btn-outline-light" onClick={() => {
+                    <button disabled={disabled} type="button" className="btn btn-outline-light" onClick={() => {
                         const final = filterSelected();
                         setFinalFilter(final);
                     }}>Search ...</button>

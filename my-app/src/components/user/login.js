@@ -5,13 +5,13 @@ import axios from 'axios';
 
 
 import TextField from '@material-ui/core/TextField';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Typography, Paper, Avatar, FormControl, Input, InputLabel } from '@material-ui/core';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { Typography, Paper, avatar } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
-import CardHeader from '@material-ui/core/CardHeader';
+
 
 
 const useStyles = makeStyles((theme) =>
@@ -56,6 +56,7 @@ const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+    const [isError, setIsError] = useState(false);
 
 
     useEffect(() => {
@@ -78,8 +79,9 @@ const Login = (props) => {
                 password: user.password,
             })
             .then(res => {
-                if (res.status === 401) {
+                if (res.status === 404) {
                     console.log("some error")
+                    setIsError(true)
                 }
                 else {
                     console.log(res.data)
@@ -88,6 +90,7 @@ const Login = (props) => {
             })
             .catch(err => {
                 console.log(err);
+                setIsError(true)
             })
     }
 
@@ -134,6 +137,7 @@ const Login = (props) => {
                             />
                         </div>
                     </CardContent>
+                    {isError ? <p style={{color:"red"}}>Login error</p> : ''}
                     <CardActions>
                         <Button
                             variant="contained"

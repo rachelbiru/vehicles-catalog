@@ -31,6 +31,7 @@ router.post('/register', async (req, res, next) => {
 
 router.get('/me', verifyToken, async (req, res, next) => {
     const user = await User.findById(req.userId, { password: 0 })
+    token = req.get('x-access-token')
     if (!user) {
         return res.status(404).send('No user found')
     }
