@@ -3,7 +3,7 @@ const router = Router();
 
 const jwt = require('jsonwebtoken');
 const config = require('../config');
-const verifyToken = require("./verfyToken");
+const verifyToken = require("./verifyToken");
 
 const User = require("../models/User");
 
@@ -16,15 +16,28 @@ router.post('/register', async (req, res, next) => {
         email,
         password
     });
-    user.password = await user.encryptPassword(user.password);
-    await user.save();
-    console.log(user)
 
-    const token = jwt.sign({ id: user._id }, config.secret, {
-        expiresIn: 60 * 60 * 24
+    User.findOne({
+        email: req.body.email
     })
-    res.json({ auth: true, token: token })
+    .then(async (userData) => {
 
+        if (!userData) {
+            user.password = await user.encryptPassword(user.password);
+            await user.save();
+
+            const token = jwt.sign({ id: user._id }, config.secret, {
+                expiresIn: 60 * 60 * 24
+            })
+            res.json({ auth: true, token: token })
+
+        } else {
+            res.status(404).json({ error: 'User already exist' })
+        }
+    })
+        .catch(err => {
+            res.status(500).send('error:' + err)
+        })
 })
 
 
@@ -49,7 +62,7 @@ router.post('/login', async (req, res, next) => {
     }
 
     const passwordIsValid = await user.validatePassword(password);
-    
+
     if (!passwordIsValid) {
         res.status(401).json({ auth: false, token: null })
     }

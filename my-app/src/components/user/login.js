@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -12,6 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import CardHeader from '@material-ui/core/CardHeader';
+import GetVehicles from '../GetVehicles/GetVehicles';
 
 
 const useStyles = makeStyles((theme) =>
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) =>
         avatar: {
             margin: theme.spacing.unit,
             backgroundColor: theme.palette.secondary.main,
-            
+
         },
 
     }),
@@ -55,6 +56,8 @@ const Login = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [login, setLogin] = useState(false);
+
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
 
@@ -72,18 +75,21 @@ const Login = (props) => {
             password,
         }
 
-        axios
-            .post('users/login', {
-                email: user.email,
-                password: user.password,
-            })
+        axios.post('users/login', {
+            email: user.email,
+            password: user.password,
+        })
             .then(res => {
                 if (res.status === 401) {
                     console.log("some error")
                 }
                 else {
                     console.log(res.data)
-                    props.history.push('/cars-catalog');
+                    console.log(res.data.token)
+                    props.getToken(res.data.token)
+                    setLogin(true)
+
+                    // props.history.push('/cars-catalog');
                 }
             })
             .catch(err => {
@@ -96,6 +102,11 @@ const Login = (props) => {
             isButtonDisabled || handleLogin();
         }
     };
+
+    if (login) {
+        return <Redirect to="/cars-catalog" />
+    }
+
 
     return (
 
@@ -112,7 +123,6 @@ const Login = (props) => {
                     <CardContent>
                         <div>
                             <TextField
-                                // error={error}
                                 fullWidth
                                 id="email"
                                 type="email"

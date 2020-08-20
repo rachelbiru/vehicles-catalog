@@ -5,7 +5,7 @@ import '../../App.css'
 * @function ShowVehicles
 **/
 
-const ShowVehicles = (props) => {
+const ShowVehicles = ({finalFilter}) => {
     return (
     
             <div className='tableVehicals'>
@@ -20,7 +20,7 @@ const ShowVehicles = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {props.finalFilter.map(vehicle => (
+                        {finalFilter.map(vehicle => (
                             <tr key={vehicle.id}>
                                 <td>{vehicle.make}</td>
                                 <td>{vehicle.model}</td>

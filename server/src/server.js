@@ -6,8 +6,10 @@ const path = require('path');
 app.use(express.json());
 
 require('./database');
+const verifyToken = require("../src/controller/verifyToken");
 
-app.get('/vehicles', async (req, res) => {
+
+app.get('/vehicles', verifyToken, async (req, res) => {
   await res.status(200).json(someObject)
 })
 
