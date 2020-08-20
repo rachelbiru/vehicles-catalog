@@ -10,6 +10,9 @@ const userSchema = new Schema({
     password: {
         type: String
     },
+    facebookId: { type: String },
+    accessToken: { type: String },
+
 });
 
 userSchema.methods.encryptPassword = async (password) => {

@@ -1,7 +1,6 @@
 {
   "name": "cars-catalog",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/rachelbiru/vehicles-catalog/issues"
   },
-  "homepage": "https://github.com/rachelbiru/vehicles-catalog#readme"
+  "homepage": "https://github.com/rachelbiru/vehicles-catalog#readme",
+  "dependencies": {
+    "autoprefixer": "^9.8.0",
+    "concurrently": "^5.3.0"
+  },
+  "devDependencies": {},
+  "description": ""
 }

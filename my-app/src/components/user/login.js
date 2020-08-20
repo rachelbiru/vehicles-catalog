@@ -5,14 +5,15 @@ import axios from 'axios';
 
 
 import TextField from '@material-ui/core/TextField';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Typography, Paper, Avatar, FormControl, Input, InputLabel } from '@material-ui/core';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { Typography, Paper, Avatar } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import CardHeader from '@material-ui/core/CardHeader';
 import GetVehicles from '../GetVehicles/GetVehicles';
+import FacebookLogin from './FacebookLogin';
 
 
 const useStyles = makeStyles((theme) =>
@@ -59,6 +60,7 @@ const Login = (props) => {
     const [login, setLogin] = useState(false);
 
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+    const [isError, setIsError] = useState(false);
 
 
     useEffect(() => {
@@ -80,20 +82,20 @@ const Login = (props) => {
             password: user.password,
         })
             .then(res => {
-                if (res.status === 401) {
+                if (res.status === 404) {
                     console.log("some error")
+                    setIsError(true)
                 }
                 else {
                     console.log(res.data)
-                    console.log(res.data.token)
                     props.getToken(res.data.token)
                     setLogin(true)
-
                     // props.history.push('/cars-catalog');
                 }
             })
             .catch(err => {
                 console.log(err);
+                setIsError(true)
             })
     }
 
@@ -144,6 +146,7 @@ const Login = (props) => {
                             />
                         </div>
                     </CardContent>
+                    {isError ? <p style={{color:"red"}}>Login error</p> : ''}
                     <CardActions>
                         <Button
                             variant="contained"
@@ -163,6 +166,7 @@ const Login = (props) => {
                             to="/register">
                             Go back to Register
                         </Button>
+                        <FacebookLogin/>
                     </CardActions>
                 </Card>
             </form>
