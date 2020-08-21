@@ -33,7 +33,6 @@ const App = (props) => {
           {token ? <Route exact path='/cars-catalog' render={() => <GetVehicles token={token} />} /> :
             <Redirect to="/" />}
 
-
         </Switch>
       </Router>
     </MuiThemeProvider>
