@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import FacebookLoginBtn from 'react-facebook-login'
 import axios from 'axios';
 import FB from 'fb';
+import { Redirect } from 'react-router-dom';
+import GetVehicles from '../GetVehicles/GetVehicles';
 
 /**
 * @author
@@ -10,58 +12,64 @@ import FB from 'fb';
 
 const FacebookLogin = (props) => {
     const [auth, setAuth] = useState(false);
+    const [accessToken, setAccessToken] = useState(false);
+
 
     const componentClicked = () => {
         console.log('facebook btn clicked')
     }
 
     const responseFacebook = (response) => {
-        console.log(response)
+
+        setAccessToken(response.accessToken)
         const { accessToken, userID } = response
 
+
         axios.post('users/login-with-facebook',
-                JSON.stringify({ accessToken, userID }), {
-                headers: { 'Content-Type': 'application/json' },
-            })
+            JSON.stringify({ accessToken, userID }), {
+            headers: { 'Content-Type': 'application/json' },
+        })
             .then(res => {
                 if (res.status === 200) {
                     console.log("facebook Login Success")
+                    props.sendToken(accessToken)
+                    setAuth(true)
+
                 } else {
                     console.log('post facebook user data not success')
                 }
             }).catch(() => {
-                console.log('some erorr')
+                console.log('some error')
             })
 
-            FB.api( '/me/access_token',
-                'GET',
-                {"fields":"id,name"},
-                function(response) {
-                    console.log(JSON.stringify(response))
-                }
-              );
+        FB.api('/me',
+            'GET',
+            { "fields": "id,name" },
+            function (response) {
+                console.log(response)
+            }
+        );
 
     }
 
-    let facebookData;
+    if (auth) {
+        return <Redirect to="cars-catalog" />
+    }
 
-    auth ?
-        facebookData = (
-            console.log("no accuses")
-        ) :
-        facebookData = (
-            <FacebookLoginBtn
-                appId="629937194617880"
-                autoLoad={false}
-                fields="name,email,picture"
-                onClick={componentClicked}
-                callback={responseFacebook} />
-        )
+    const facebookData = (
+        <FacebookLoginBtn
+            appId="629937194617880"
+            autoLoad={false}
+            fields="name,email,picture"
+            onClick={componentClicked}
+            callback={responseFacebook} />
+    )
 
     return (
         <div>
             {facebookData}
         </div>
+
     )
 
 }

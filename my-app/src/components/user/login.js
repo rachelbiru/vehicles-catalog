@@ -58,6 +58,7 @@ const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [login, setLogin] = useState(false);
+    const [token, setToken] = useState('')
 
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [isError, setIsError] = useState(false);
@@ -70,6 +71,11 @@ const Login = (props) => {
             setIsButtonDisabled(true);
         }
     }, [email, password]);
+
+
+    const sendTokenFacebookLogin= (token) => {
+       props.getToken(token)
+    }
 
     const handleLogin = () => {
         const user = {
@@ -87,10 +93,8 @@ const Login = (props) => {
                     setIsError(true)
                 }
                 else {
-                    console.log(res.data)
                     props.getToken(res.data.token)
                     setLogin(true)
-                    // props.history.push('/cars-catalog');
                 }
             })
             .catch(err => {
@@ -146,7 +150,7 @@ const Login = (props) => {
                             />
                         </div>
                     </CardContent>
-                    {isError ? <p style={{color:"red"}}>Login error</p> : ''}
+                    {isError ? <p style={{ color: "red" }}>Login error</p> : ''}
                     <CardActions>
                         <Button
                             variant="contained"
@@ -166,7 +170,7 @@ const Login = (props) => {
                             to="/register">
                             Go back to Register
                         </Button>
-                        <FacebookLogin/>
+                        <FacebookLogin sendToken={sendTokenFacebookLogin} />
                     </CardActions>
                 </Card>
             </form>

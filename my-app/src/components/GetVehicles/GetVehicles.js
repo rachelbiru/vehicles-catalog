@@ -11,7 +11,13 @@ import './getVehicles.css'
 
 const GetVehicles = ({token}) => {
     const [vehicles, setVehicles] = useState([]);
-    console.log(token);
+
+    const authAxios = axios.create({
+        baseURL: "/vehicles",
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
 
 
     useEffect(() => {
@@ -19,12 +25,9 @@ const GetVehicles = ({token}) => {
     })
 
     const getVehicles = () => {
-        axios.get(`/vehicles`, {
-            headers: {
-                'Authorization': `${token}`
-            }
-        })
+        authAxios.get(`/`)
             .then(res => {
+                console.log(res.data)
                 setVehicles(res.data.vehicles)
             })
             .catch(err => {

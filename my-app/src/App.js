@@ -27,11 +27,9 @@ const App = (props) => {
       <Router>
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route exact path='/register' component={Register} />
-          {/* <Route exact path='/login' component={Login} /> */}
+          <Route exact path='/register' render={() => <Register getToken={getToken}/>} />
           <Route exact path='/login' render={() => <Login getToken={getToken}/>} />
           <Route exact path='/cars-catalog' render={() => <GetVehicles token={token}/>} />
-          {/* <Route exact path='/cars-catalog' component={GetVehicles} /> */}
         </Switch>
       </Router>
     </MuiThemeProvider>

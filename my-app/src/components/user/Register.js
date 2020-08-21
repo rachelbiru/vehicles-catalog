@@ -62,6 +62,10 @@ const Register = (props) => {
         }
     }, [email, password]);
 
+    const sendTokenFacebookLogin= (token) => {
+        props.getToken(token)
+     }
+
     const onSubmit = data => {
         const user = {
             name: data.name,
@@ -147,8 +151,7 @@ const Register = (props) => {
                         Go back to Login
                   </Button>
 
-                    <FacebookLogin />
-
+                    <FacebookLogin sendToken={sendTokenFacebookLogin} />
                 </form>
             </Paper>
         </main>
