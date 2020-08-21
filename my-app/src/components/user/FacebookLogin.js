@@ -28,9 +28,7 @@ const FacebookLogin = (props) => {
         const { accessToken, userID } = response
 
         axios.post('/users/login-with-facebook',
-            JSON.stringify({ accessToken, userID }), {
-            headers: { 'Content-Type': 'application/json' },
-        })
+                 {accessToken, userID })
             .then(res => {
                 if (res.status === 200) {
                     console.log("facebook Login Success")
