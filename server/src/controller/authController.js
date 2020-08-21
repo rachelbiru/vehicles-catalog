@@ -59,6 +59,7 @@ router.get('/me', verifyToken, async (req, res, next) => {
 router.post('/login', async (req, res, next) => {
     const { email, password } = req.body;
 
+
     const user = await User.findOne({ email: email })
     if (!user) {
         return res.status(404).send('The email no exists')
@@ -80,6 +81,7 @@ router.post('/login', async (req, res, next) => {
 
 router.post('/login-with-facebook', async (req, res) => {
     const { accessToken, userID } = req.body
+    console.log(req.body)
 
     const respo = await fetch(`https://graph.facebook.com/v2.3/me?access_token=${accessToken}&method=get&pretty=0&sdk=joey&suppress_http_code=1`)
     const json = await respo.json()

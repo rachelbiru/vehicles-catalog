@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FacebookLoginBtn from 'react-facebook-login'
 import axios from 'axios';
 import FB from 'fb';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import GetVehicles from '../GetVehicles/GetVehicles';
 
 /**
@@ -13,6 +13,8 @@ import GetVehicles from '../GetVehicles/GetVehicles';
 const FacebookLogin = (props) => {
     const [auth, setAuth] = useState(false);
     const [accessToken, setAccessToken] = useState(false);
+    const history = useHistory();
+
 
 
     const componentClicked = () => {
@@ -25,7 +27,7 @@ const FacebookLogin = (props) => {
         setAccessToken(response.accessToken)
         const { accessToken, userID } = response
 
-        axios.post('users/login-with-facebook',
+        axios.post('/users/login-with-facebook',
             JSON.stringify({ accessToken, userID }), {
             headers: { 'Content-Type': 'application/json' },
         })
@@ -34,6 +36,7 @@ const FacebookLogin = (props) => {
                     console.log("facebook Login Success")
                     props.sendToken(accessToken)
                     setAuth(true)
+                    history.push('cars-catalog')
 
                 } else {
                     console.log('post facebook user data not success')
@@ -43,9 +46,9 @@ const FacebookLogin = (props) => {
             })
     }
 
-    if (auth) {
-        return <Redirect to="cars-catalog" />
-    }
+    // if (auth) {
+    //     return <Redirect to="cars-catalog" />
+    // }
 
     const facebookData = (
         <FacebookLoginBtn
