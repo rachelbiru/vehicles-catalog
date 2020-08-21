@@ -29,9 +29,10 @@ const App = (props) => {
           <Route exact path='/' component={HomePage} />
           <Route exact path='/register' render={() => <Register getToken={getToken} />} />
           <Route exact path='/login' render={() => <Login getToken={getToken} />} />
+          <Route exact path='/cars-catalog' render={() => <GetVehicles token={token} />} /> 
+          
 
-          {token ? <Route exact path='/cars-catalog' render={() => <GetVehicles token={token} />} /> :
-            <Redirect to="/" />}
+          {/* {token ? <Route exact path='/cars-catalog' render={() => <GetVehicles token={token} />} /> : <Redirect to="/" />} */}
 
         </Switch>
       </Router>

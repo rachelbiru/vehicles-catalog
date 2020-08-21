@@ -20,10 +20,10 @@ const FacebookLogin = (props) => {
     }
 
     const responseFacebook = (response) => {
+        console.log(response)
 
         setAccessToken(response.accessToken)
         const { accessToken, userID } = response
-
 
         axios.post('users/login-with-facebook',
             JSON.stringify({ accessToken, userID }), {
@@ -41,15 +41,6 @@ const FacebookLogin = (props) => {
             }).catch(() => {
                 console.log('some error')
             })
-
-        FB.api('/me',
-            'GET',
-            { "fields": "id,name" },
-            function (response) {
-                console.log(response)
-            }
-        );
-
     }
 
     if (auth) {

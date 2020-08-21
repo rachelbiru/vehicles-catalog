@@ -11,7 +11,8 @@ app.use(express.json());
 require('./database');
 
 
-app.get('/vehicles', verifyToken, async (req, res) => {
+app.get('/vehicles', async (req, res) => {
+    token = req.get('x-access-token')
   await res.status(200).json(someObject)
 })
 
