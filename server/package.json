@@ -15,7 +15,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js",
-    "server": "nodemon src/server.js"
+    "server": "nodemon src/server.js",
+    "client": "cd .. && cd my-app && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
