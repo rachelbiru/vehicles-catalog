@@ -25,7 +25,6 @@ app.get('/vehicles', async (req, res) => {
 
 
 
-
 //deployment
 if (process.env.NODE_ENV === "production") {
     const root = path.join(__dirname, '..', '..', "my-app","build");

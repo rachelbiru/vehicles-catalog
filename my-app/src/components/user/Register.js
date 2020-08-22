@@ -3,11 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Typography, Paper, Avatar, Button, FormControl, Input, InputLabel } from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { Link } from 'react-router-dom';
-import FacebookLoginBtn from 'react-facebook-login'
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import FacebookLogin from './FacebookLogin';
-
 
 
 const styles = theme => ({
@@ -54,6 +52,8 @@ const Register = (props) => {
     const [password, setPassword] = useState('');
     const [auth, setAuth] = useState(false);
 
+    const history = useHistory()
+
     useEffect(() => {
         if (email.trim() && password.trim()) {
             setIsButtonDisabled(false);
@@ -81,7 +81,7 @@ const Register = (props) => {
                 if (res.status === 200) {
                     alert('A name was submitted: ' + data.name);
                     console.log(res)
-                    props.history.push('/login');
+                    history.push('login')
                 } else {
 
                 }

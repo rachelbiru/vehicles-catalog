@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import FacebookLoginBtn from 'react-facebook-login'
 import axios from 'axios';
-import FB from 'fb';
-import { Redirect, useHistory } from 'react-router-dom';
-// import GetVehicles from '../GetVehicles/GetVehicles';    
+import { useHistory } from 'react-router-dom';
 
 /**
 * @author
@@ -46,9 +44,7 @@ const FacebookLogin = (props) => {
             })
     }
 
-    // if (auth) {
-    //     return <Redirect to="cars-catalog" />
-    // }
+
 
     const facebookData = (
         <FacebookLoginBtn

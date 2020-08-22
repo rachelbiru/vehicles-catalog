@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -63,6 +63,8 @@ const Login = (props) => {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [isError, setIsError] = useState(false);
 
+    const history = useHistory()
+
 
     useEffect(() => {
         if (email.trim() && password.trim()) {
@@ -95,6 +97,8 @@ const Login = (props) => {
                 else {
                     props.getToken(res.data.token)
                     setLogin(true)
+                    history.push('cars-catalog')
+                    
                 }
             })
             .catch(err => {
@@ -109,9 +113,6 @@ const Login = (props) => {
         }
     };
 
-    if (login) {
-        return <Redirect to="/cars-catalog" />
-    }
 
 
     return (
