@@ -3,7 +3,7 @@ import FacebookLoginBtn from 'react-facebook-login'
 import axios from 'axios';
 import FB from 'fb';
 import { Redirect, useHistory } from 'react-router-dom';
-import GetVehicles from '../GetVehicles/GetVehicles';
+// import GetVehicles from '../GetVehicles/GetVehicles';    
 
 /**
 * @author
@@ -28,7 +28,9 @@ const FacebookLogin = (props) => {
         const { accessToken, userID } = response
 
         axios.post('/users/login-with-facebook',
-                 {accessToken, userID })
+            JSON.stringify({ accessToken, userID }), {
+            headers: { 'Content-Type': 'application/json' },
+        })
             .then(res => {
                 if (res.status === 200) {
                     console.log("facebook Login Success")

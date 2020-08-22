@@ -5,6 +5,7 @@ const someObject = require('./vehicle.json');
 const verifyToken = require("../src/controller/verifyToken");
 
 
+
 const path = require('path');
 app.use(express.json());
 
@@ -30,6 +31,7 @@ if (process.env.NODE_ENV === "production") {
 };
 
 
-app.listen(PORT, () => {
-    console.log(`app running on port ${PORT}`)
-});
+app.listen(process.env.PORT || 5000, function () {
+    var port = server.address().port;
+    console.log("Express is working on port " + port);
+  });
