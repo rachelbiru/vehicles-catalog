@@ -1,17 +1,16 @@
 
-import React, { useState, useEffect } from './node_modules/react';
-import { Link, useHistory } from './node_modules/react-router-dom';
-import axios from './node_modules/axios';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 
-import TextField from './node_modules/@material-ui/core/TextField';
-import { createStyles, makeStyles } from './node_modules/@material-ui/core/styles';
-import { Typography, Paper, Avatar } from './node_modules/@material-ui/core';
-import Card from './node_modules/@material-ui/core/Card';
-import CardContent from './node_modules/@material-ui/core/CardContent';
-import CardActions from './node_modules/@material-ui/core/CardActions';
-import Button from './node_modules/@material-ui/core/Button';
-// import CardHeader from './node_modules/@material-ui/core/CardHeader';
+import TextField from '@material-ui/core/TextField';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { Typography, Paper, Avatar } from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
 import FacebookLogin from './FacebookLogin';
 
 

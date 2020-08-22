@@ -1,7 +1,7 @@
-import React, { useState } from './node_modules/react';
-import FacebookLoginBtn from './node_modules/react-facebook-login'
-import axios from './node_modules/axios';
-import { useHistory } from './node_modules/react-router-dom';
+import React, { useState } from 'react';
+import FacebookLoginBtn from 'react-facebook-login'
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 /**
 * @author
