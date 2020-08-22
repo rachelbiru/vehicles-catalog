@@ -1,10 +1,10 @@
 
-import React, { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { Typography, Paper, Avatar, Button, FormControl, Input, InputLabel } from '@material-ui/core';
-import withStyles from '@material-ui/core/styles/withStyles';
-import { Link, useHistory } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from './node_modules/react';
+import { useForm } from './node_modules/react-hook-form';
+import { Typography, Paper, Avatar, Button, FormControl, Input, InputLabel } from './node_modules/@material-ui/core';
+import withStyles from './node_modules/@material-ui/core/styles/withStyles';
+import { Link, useHistory } from './node_modules/react-router-dom';
+import axios from './node_modules/axios';
 import FacebookLogin from './FacebookLogin';
 
 

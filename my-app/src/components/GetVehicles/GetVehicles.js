@@ -27,7 +27,6 @@ const GetVehicles = ({token}) => {
     const getVehicles = () => {
         authAxios.get(`/`)
             .then(res => {
-                // console.log(res.data)
                 setVehicles(res.data.vehicles)
             })
             .catch(err => {

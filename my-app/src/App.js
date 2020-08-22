@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import GetVehicles from './components/GetVehicles/GetVehicles';
-import Register from './components/user/Register'
-import Login from './components/user/login';
+import Register from './components/User/Register'
+import Login from './components/User/Login';
 import HomePage from './components/HomePage';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
@@ -29,7 +29,6 @@ const App = (props) => {
           <Route exact path='/' component={HomePage} />
           <Route exact path='/register' render={() => <Register getToken={getToken} />} />
           <Route exact path='/login' render={() => <Login getToken={getToken} />} />
-            {/* <Route exact path='/cars-catalog' render={() => <GetVehicles token={token} />} />  */}
           {token ? <Route exact path='/cars-catalog' render={() => <GetVehicles token={token} />} /> : <Redirect to="/" />}
 
         </Switch>
