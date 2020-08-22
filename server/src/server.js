@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5000;
+const host = process.env.HOST || '0.0.0.0'
+
 const bodyParser = require('body-parser')
 const path = require('path');
 require('./database');
@@ -34,11 +36,7 @@ if (process.env.NODE_ENV === "production") {
     });
 };
 
-var server = app.listen(process.env.PORT || 5000, function () {
-    var port = server.address().port;
-    console.log("Express is working on port " + port);
-  });
 
-// app.listen(PORT, () => {
-//     console.log(`app running on port ${PORT}`)
-// });
+app.listen(PORT, host,  () => {
+    console.log(`app running on port ${PORT}`)
+});
