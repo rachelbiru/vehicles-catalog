@@ -4,6 +4,10 @@ const PORT = process.env.PORT || 5000;
 const someObject = require('./vehicle.json');
 const verifyToken = require("../src/controller/verifyToken");
 
+// var server = app.listen(process.env.PORT || 5000, function () {
+//     var port = server.address().port;
+//     console.log("Express is working on port " + port);
+//   });
 
 
 const path = require('path');
@@ -30,8 +34,11 @@ if (process.env.NODE_ENV === "production") {
     });
 };
 
-
-app.listen(process.env.PORT || 5000, function () {
+var server = app.listen(process.env.PORT || 5000, function () {
     var port = server.address().port;
     console.log("Express is working on port " + port);
   });
+
+// app.listen(PORT, () => {
+//     console.log(`app running on port ${PORT}`)
+// });
