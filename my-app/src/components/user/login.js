@@ -96,6 +96,8 @@ const Login = (props) => {
                     props.getToken(res.data.token)
                     setLogin(true)
                     history.push('cars-catalog')
+                    localStorage.setItem('token', res.data.token)
+
                     
                 }
             })
