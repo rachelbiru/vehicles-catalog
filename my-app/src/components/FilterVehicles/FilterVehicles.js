@@ -17,9 +17,7 @@ const FilterVehicles = (props) => {
     const [yearSelected, setYearSelected] = useState();
 
     const vehicles = props.vehicles;
-const allVehicles = ()=>{
 
-}
     const filterByMake = (make) => {
         let tmp = [...vehicles];
         const newVehicles = tmp.filter(vehicle => { return vehicle.make === make })
@@ -65,7 +63,7 @@ const allVehicles = ()=>{
         else if (makeSelected && !modelSelected && !yearSelected){
             return filterVehiclesByMake
         }
-        return showAllVehicles
+        
 
     }
 

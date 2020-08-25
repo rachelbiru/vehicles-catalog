@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import TextField from '@material-ui/core/TextField';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { Typography, Paper, avatar } from '@material-ui/core';
+import { Typography, Paper, Avatar } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
