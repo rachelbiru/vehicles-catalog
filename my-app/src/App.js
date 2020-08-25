@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import GetVehicles from './components/GetVehicles/GetVehicles';
-import Register from './components/User/Register'
-import Login from './components/User/Login'
+import Register from './components/user/Register'
+import Login from './components/user/login'
 import HomePage from './components/HomePage';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
