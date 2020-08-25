@@ -1,48 +1,59 @@
 
 import React, { useState, useEffect } from 'react';
+import { Typography, Paper, Avatar, Button, FormControl} from '@material-ui/core';
+import withStyles from '@material-ui/core/styles/withStyles';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
-
-
-import TextField from '@material-ui/core/TextField';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { Typography, Paper, Avatar } from '@material-ui/core';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
 import FacebookLogin from './FacebookLogin';
+import './facebookStyle.css';
+import './register.css';
+
+const styles = theme => ({
+    main: {
+        width: 'auto',
+        display: 'block',
+        marginLeft: theme.spacing.unit * 6,
+        marginRight: theme.spacing.unit * 6,
+        [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+            width: '30%',
+            position: 'relative',
+            marginTop: '10%',
+            marginLeft: 'auto',
+            marginRight: '37%'
+        },
+    },
+    paper: {
+        marginTop: theme.spacing.unit * 8,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: `10px ${theme.spacing(8.375)}px`,
+        backgroundColor: '#dd9f4082',
+        position: 'relative',
+        color: 'white',
+    },
+
+    avatar: {
+        margin: theme.spacing.unit,
+        backgroundColor: '#c45336',
+        border: '2px solid'
+    },
+    loginBtn: {
+        marginTop: theme.spacing(2),
+            flexGrow: 1,
+        backgroundColor: '#c45336',
+        border: '2px solid #c45336',
+        width: '100%',
+       '&:hover': {
+              backgroundColor: '#bc6752',
+              color: 'white',
+              border: '#bc6752'
+            },
+       
+    }
 
 
-const useStyles = makeStyles((theme) =>
-    createStyles({
-        container: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            width: 400,
-            margin: `${theme.spacing(0)} auto`
-        },
-        loginBtn: {
-            marginTop: theme.spacing(2),
-            flexGrow: 1
-        },
-        header: {
-            textAlign: 'center',
-            background: '#212121',
-            color: '#fff'
-        },
-        card: {
-            marginTop: theme.spacing(10),
-            alignItems: 'center'
-        },
-        avatar: {
-            margin: theme.spacing.unit,
-            backgroundColor: theme.palette.secondary.main,
-
-        },
-
-    }),
-);
+})
 
 /**
 * @author
@@ -51,7 +62,8 @@ const useStyles = makeStyles((theme) =>
 
 
 const Login = (props) => {
-    const classes = useStyles();
+    // const classes = useStyles();
+    const { classes } = props
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -73,8 +85,8 @@ const Login = (props) => {
     }, [email, password]);
 
 
-    const sendTokenFacebookLogin= (token) => {
-       props.getToken(token)
+    const sendTokenFacebookLogin = (token) => {
+        props.getToken(token)
     }
 
     const handleLogin = () => {
@@ -98,7 +110,7 @@ const Login = (props) => {
                     history.push('cars-catalog')
                     localStorage.setItem('token', res.data.token)
 
-                    
+
                 }
             })
             .catch(err => {
@@ -116,20 +128,21 @@ const Login = (props) => {
 
 
     return (
+        <main className={classes.main}>
+            <Paper className={classes.paper}>
+                <Avatar className={classes.avatar}>
+                </Avatar>
+                <Typography component="h1" variant="h5" >
+                    Hello Guest!
+           </Typography>
 
-        <React.Fragment>
+                
 
-            <form className={classes.container} noValidate autoComplete="off">
-                <Card className={classes.card}>
-                    <Avatar className={classes.avatar}>
-                    </Avatar>
-                    <Typography component="h1" variant="h5" >
-                        Hello Guest!
-               </Typography>
-                    {/* <CardHeader className={classes.header} title="Login App" /> */}
-                    <CardContent>
-                        <div>
-                            <TextField
+
+                    <FormControl margin="normal" required fullWidth>
+                        <div class="form__group field">
+                            <input
+                                onChange={(e) => { setEmail(e.target.value) }}
                                 fullWidth
                                 id="email"
                                 type="email"
@@ -138,8 +151,16 @@ const Login = (props) => {
                                 margin="normal"
                                 onChange={(e) => setEmail(e.target.value)}
                                 onKeyPress={(e) => handleKeyPress(e)}
+                                class="form__field"
+
                             />
-                            <TextField
+                            <label for="email" class="form__label">Email</label>
+                        </div>
+                    </FormControl>
+
+                    <FormControl margin="normal" required fullWidth>
+                        <div class="form__group field">
+                            <input
                                 fullWidth
                                 id="password"
                                 type="password"
@@ -148,36 +169,36 @@ const Login = (props) => {
                                 margin="normal"
                                 onChange={(e) => setPassword(e.target.value)}
                                 onKeyPress={(e) => handleKeyPress(e)}
+                                class="form__field"
                             />
+                            <label for="password" class="form__label">Password</label>
                         </div>
-                    </CardContent>
-                    {isError ? <p style={{ color: "red" }}>Login error</p> : ''}
-                    <CardActions>
-                        <Button
-                            variant="contained"
-                            size="large"
-                            color="secondary"
-                            className={classes.loginBtn}
-                            onClick={() => handleLogin()}
-                            disabled={isButtonDisabled}>
-                            Login
-                        </Button>
-                        <Button
-                            variant="contained"
-                            size="large"
-                            color="primary"
-                            className={classes.loginBtn}
-                            component={Link}
-                            to="/register">
-                            Go back to Register
-                        </Button>
-                        <FacebookLogin sendToken={sendTokenFacebookLogin} />
-                    </CardActions>
-                </Card>
-            </form>
-        </React.Fragment>
+                    </FormControl>
+                    <Button
+                        variant="contained"
+                        size="large"
+                        color="secondary"
+                        className={classes.loginBtn}
+                        onClick={() => handleLogin()}
+                        disabled={isButtonDisabled}>
+                        Login
+                         </Button>
+                    <Button
+                        variant="contained"
+                        size="large"
+                        color="primary"
+                        className={classes.loginBtn}
+                        component={Link}
+                        to="/register">
+                        Go back to Register
+                         </Button>
+                    <div class="hr-sect">OR</div>
+
+                    <FacebookLogin sendToken={sendTokenFacebookLogin} />
+            </Paper>
+        </main>
     )
 
 }
 
-export default Login
+export default withStyles(styles)(Login)

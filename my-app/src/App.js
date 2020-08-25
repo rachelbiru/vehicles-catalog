@@ -5,7 +5,7 @@ import GetVehicles from './components/GetVehicles/GetVehicles';
 import Register from './components/user/Register'
 import Login from './components/user/login'
 import HomePage from './components/HomePage';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 
 
@@ -24,7 +24,11 @@ const App = (props) => {
 
 
   return (
+
     <MuiThemeProvider>
+      <video autoPlay muted loop id="myVideo">
+        <source src="https://media.istockphoto.com/videos/driving-into-the-sunset-video-id635808578" type="video/mp4" />
+      </video>
       <CssBaseline />
       <Router>
         <Switch>
@@ -37,7 +41,6 @@ const App = (props) => {
         </Switch>
       </Router>
     </MuiThemeProvider>
-
 
   )
 

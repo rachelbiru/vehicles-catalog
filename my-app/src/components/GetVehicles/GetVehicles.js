@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import FilterVehicles from '../FilterVehicles/FilterVehicles';
 import axios from 'axios';
-import './getVehicles.css'
+// import '../FilterVehicles/FilterVehicles.css'
 
 
 /**

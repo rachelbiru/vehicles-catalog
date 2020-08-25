@@ -1,6 +1,7 @@
 *{
   margin:0;
-  padding: 0  
+  padding: 0 ;
+
 }
 
 .App {
@@ -18,22 +19,24 @@ body {
 }
 
 #myVideo {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%; 
-  min-height: 100%;
+  top: 0;
+  left: 0;
 }
 
 
 
 .content {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  width: 100%;
+  position: relative;
   height: 100vh;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
 }
 select {
   font-family: Cursive;
@@ -75,3 +78,6 @@ padding: 4%;
   height: 47vh;
   overflow: auto;
 }
+
+
+

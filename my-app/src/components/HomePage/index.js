@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Paper, Avatar, Button, Backdrop } from '@material-ui/core'
+import { Typography, Paper, Avatar, Button } from '@material-ui/core'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Link } from 'react-router-dom';
 
@@ -8,12 +8,14 @@ const styles = theme => ({
     main: {
         width: 'auto',
         display: 'block',
-        marginLeft: theme.spacing.unit * 6,  
+        marginLeft: theme.spacing.unit * 6,
         marginRight: theme.spacing.unit * 6,
         [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
             width: 400,
             marginLeft: 'auto',
-            marginRight: 'auto',
+            marginRight: '44%',
+            position: 'relative',
+            marginTop: '17%'
         },
     },
     paper: {
@@ -21,15 +23,31 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 3}px`
+        padding: `10px ${theme.spacing(8.375)}px`,
+        backgroundColor: '#dd9f4082',
+        width: '100%',
+        position: 'relative',
+        color: 'white',
     },
+
     avatar: {
         margin: theme.spacing.unit,
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: '#c45336',
+        border: '2px solid'
     },
     submit: {
         marginTop: theme.spacing.unit * 3,
+        backgroundColor: '#c45336',
+        border: '2px solid #c45336',
+       '&:hover': {
+              backgroundColor: '#bc6752',
+              color: 'white',
+              border: '#bc6752'
+            },
+       
     }
+ 
+    
 })
 
 
@@ -44,7 +62,6 @@ const HomePage = (props) => {
         <main className={classes.main}>
             <Paper className={classes.paper}>
                 <Avatar className={classes.avatar}>
-                    {/* <VerifiedUserOutLined /> */}
                 </Avatar>
                 <Typography component="h1" variant="h5" >
                     Hello Guest!
