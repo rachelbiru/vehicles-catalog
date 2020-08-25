@@ -10,6 +10,9 @@ const userSchema = new Schema({
     password: {
         type: String
     },
+    facebookId: { type: String },
+    accessToken: { type: String },
+
 });
 
 userSchema.methods.encryptPassword = async (password) => {
@@ -20,10 +23,6 @@ userSchema.methods.encryptPassword = async (password) => {
 userSchema.methods.validatePassword = function (password) {
     return bcrypt.compare(password, this.password)
 }
-
-
-
-
 
 module.exports = model('users', userSchema);
 

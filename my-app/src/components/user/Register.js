@@ -3,10 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Typography, Paper, Avatar, Button, FormControl, Input, InputLabel } from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { Link } from 'react-router-dom';
-import FacebookLoginBtn from 'react-facebook-login'
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
-
+import FacebookLogin from './FacebookLogin';
 
 
 const styles = theme => ({
@@ -53,6 +52,8 @@ const Register = (props) => {
     const [password, setPassword] = useState('');
     const [auth, setAuth] = useState(false);
 
+    const history = useHistory()
+
     useEffect(() => {
         if (email.trim() && password.trim()) {
             setIsButtonDisabled(false);
@@ -61,44 +62,36 @@ const Register = (props) => {
         }
     }, [email, password]);
 
+    const sendTokenFacebookLogin= (token) => {
+        props.getToken(token)
+     }
+
     const onSubmit = data => {
-        alert('A name was submitted: ' + data.name);
         const user = {
             name: data.name,
             email: data.email,
             password: data.password
         }
-        axios
-            .post('users/register', {
-                name: user.name,
-                email: user.email,
-                password: user.password,
-            })
+        axios.post('users/register', {
+            name: user.name,
+            email: user.email,
+            password: user.password,
+        })
             .then(res => {
-                if (res.status === 200){
+                if (res.status === 200) {
+                    alert('A name was submitted: ' + data.name);
                     console.log(res)
-                    props.history.push('/login');
+                    history.push('login')
                 } else {
 
                 }
-           
+
             }).catch(() => {
+                alert('The Email Not Valid Try Another');
                 console.log('some erorr')
             })
     }
 
-    const componentClicked = () => {
-        console.log('facebook btn clicked')
-
-    }
-
-    const responseFacebook = (res) => {
-        console.log(res)
-        setAuth(true)
-        props.history.push('/cars-catalog');
-
-
-    }
 
     return (
         <main className={classes.main}>
@@ -158,13 +151,7 @@ const Register = (props) => {
                         Go back to Login
                   </Button>
 
-                    <FacebookLoginBtn
-                        appId="629937194617880"
-                        autoLoad={false}
-                        fields="name,email,picture"
-                        onClick={componentClicked}
-                        callback={responseFacebook} />
-
+                    <FacebookLogin sendToken={sendTokenFacebookLogin} />
                 </form>
             </Paper>
         </main>

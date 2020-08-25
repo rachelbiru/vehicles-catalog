@@ -7,7 +7,7 @@ import '../../App.css'
 * @function FilterVehicles
 **/
 
-const FilterVehicles = (props) => {
+const FilterVehicles = ({vehicles}) => {
     const [filterVehiclesByMake, setFilterVehiclesByMake] = useState([]);
     const [filterVehiclesByModel, setFilterVehiclesByModel] = useState([]);
     const [finalFilter, setFinalFilter] = useState([]);
@@ -16,7 +16,7 @@ const FilterVehicles = (props) => {
     const [modelSelected, setModelSelected] = useState();
     const [yearSelected, setYearSelected] = useState();
 
-    const vehicles = props.vehicles;
+
 
     const filterByMake = (make) => {
         let tmp = [...vehicles];
@@ -30,6 +30,7 @@ const FilterVehicles = (props) => {
     }
 
     const getUnique = (arr, comp) => {
+        
         const unique = arr
             //store the comparison values in array
             .map(e => e[comp])
@@ -45,7 +46,6 @@ const FilterVehicles = (props) => {
 
         return unique;
     }
-
 
     const uniqueCarMake = getUnique(vehicles, "make");
     const uniqueCarModels = getUnique(filterVehiclesByMake, "model")
@@ -63,8 +63,6 @@ const FilterVehicles = (props) => {
         else if (makeSelected && !modelSelected && !yearSelected){
             return filterVehiclesByMake
         }
-        
-
     }
 
     const disabled = !makeSelected

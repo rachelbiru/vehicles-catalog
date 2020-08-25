@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import FilterVehicles from '../FilterVehicles/FilterVehicles';
 import axios from 'axios';
 import './getVehicles.css'
@@ -9,27 +9,35 @@ import './getVehicles.css'
 * @function GetVehicles
 **/
 
-const GetVehicles = () => {
+const GetVehicles = ({token}) => {
     const [vehicles, setVehicles] = useState([]);
+
+    const authAxios = axios.create({
+        baseURL: "/vehicles",
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+
 
     useEffect(() => {
         getVehicles();
     })
 
     const getVehicles = () => {
-        axios.get(`/vehicles`)
+        authAxios.get(`/`)
             .then(res => {
                 setVehicles(res.data.vehicles)
             })
             .catch(err => {
                 console.log(err);
-            });
+            })
     }
 
 
     return (
         <div>
-            <FilterVehicles vehicles={vehicles}/>
+            <FilterVehicles vehicles={vehicles} />
         </div>
     )
 

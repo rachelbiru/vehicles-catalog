@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FacebookLoginBtn from 'react-facebook-login'
-import { Link } from 'react-router-dom';
-
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 /**
 * @author
@@ -10,38 +10,54 @@ import { Link } from 'react-router-dom';
 
 const FacebookLogin = (props) => {
     const [auth, setAuth] = useState(false);
+    const [accessToken, setAccessToken] = useState(false);
+    const history = useHistory();
+
+
 
     const componentClicked = () => {
         console.log('facebook btn clicked')
-        // props.history.push('/cars-catalog');
-
     }
 
-    const responseFacebook = (res) => {
-        setAuth(true)
-        console.log(res)
+    const responseFacebook = (response) => {
+        setAccessToken(response.accessToken)
+        const { accessToken, userID } = response
 
+        axios.post('/users/login-with-facebook',
+            JSON.stringify({ accessToken, userID }), {
+            headers: { 'Content-Type': 'application/json' },
+        })
+            .then(res => {
+                if (res.status === 200) {
+                    console.log("facebook Login Success")
+                    props.sendToken(accessToken)
+                    setAuth(true)
+                    history.push('cars-catalog')
+
+                } else {
+                    console.log('post facebook user data not success')
+                }
+            }).catch(() => {
+                console.log('some error')
+            })
     }
 
-    let facebookData;
 
-    auth ?
-        facebookData = (
-            console.log("no accuses")
-        ) :
-        facebookData = (
-            <FacebookLoginBtn
-                appId="629937194617880"
-                autoLoad={false}
-                fields="name,email,picture"
-                onClick={componentClicked}
-                callback={responseFacebook} />
-        )
+
+    const facebookData = (
+        <FacebookLoginBtn
+            appId="629937194617880"
+            autoLoad={false}
+            fields="name,email,picture"
+            onClick={componentClicked}
+            callback={responseFacebook} />
+    )
 
     return (
         <div>
             {facebookData}
         </div>
+
     )
 
 }

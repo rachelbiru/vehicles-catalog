@@ -1,24 +1,35 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5000;
-const someObject = require('./vehicle.json');
-const verifyToken = require("./controller/verfyToken");
+const host = process.env.HOST || '0.0.0.0'
 
+const bodyParser = require('body-parser')
 const path = require('path');
-app.use(express.json());
-
 require('./database');
 
-app.get('/vehicles',verifyToken, async (req, res) => {
+
+const someObject = require('./vehicle.json');
+const Users = require("./controller/authController");
+const verifyToken = require("../src/controller/verifyToken");
+
+
+app.use(express.json());
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
+app.use('/users', Users)
+
+
+
+app.get('/vehicles', async (req, res) => {
+    token = req.get('x-access-token')
   await res.status(200).json(someObject)
 })
 
-const Users = require("./controller/authController");
-app.use('/users', Users)
+
 
 //deployment
 if (process.env.NODE_ENV === "production") {
-    const root = path.join(__dirname, "my-app","build");
+    const root = path.join(__dirname, '..', '..', "my-app","build");
     app.use(express.static(root));
     app.get("*", (req, res) => {
         res.sendFile("index.html", { root });
@@ -26,6 +37,6 @@ if (process.env.NODE_ENV === "production") {
 };
 
 
-app.listen(PORT, () => {
+app.listen(PORT, host,  () => {
     console.log(`app running on port ${PORT}`)
 });

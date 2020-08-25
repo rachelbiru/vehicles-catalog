@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -11,7 +11,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
-
+import FacebookLogin from './FacebookLogin';
 
 
 const useStyles = makeStyles((theme) =>
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) =>
         avatar: {
             margin: theme.spacing.unit,
             backgroundColor: theme.palette.secondary.main,
-            
+
         },
 
     }),
@@ -55,8 +55,13 @@ const Login = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [login, setLogin] = useState(false);
+    const [token, setToken] = useState('')
+
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [isError, setIsError] = useState(false);
+
+    const history = useHistory()
 
 
     useEffect(() => {
@@ -67,25 +72,31 @@ const Login = (props) => {
         }
     }, [email, password]);
 
+
+    const sendTokenFacebookLogin= (token) => {
+       props.getToken(token)
+    }
+
     const handleLogin = () => {
         const user = {
             email,
             password,
         }
 
-        axios
-            .post('users/login', {
-                email: user.email,
-                password: user.password,
-            })
+        axios.post('users/login', {
+            email: user.email,
+            password: user.password,
+        })
             .then(res => {
                 if (res.status === 404) {
                     console.log("some error")
                     setIsError(true)
                 }
                 else {
-                    console.log(res.data)
-                    props.history.push('/cars-catalog');
+                    props.getToken(res.data.token)
+                    setLogin(true)
+                    history.push('cars-catalog')
+                    
                 }
             })
             .catch(err => {
@@ -99,6 +110,8 @@ const Login = (props) => {
             isButtonDisabled || handleLogin();
         }
     };
+
+
 
     return (
 
@@ -115,7 +128,6 @@ const Login = (props) => {
                     <CardContent>
                         <div>
                             <TextField
-                                // error={error}
                                 fullWidth
                                 id="email"
                                 type="email"
@@ -137,7 +149,7 @@ const Login = (props) => {
                             />
                         </div>
                     </CardContent>
-                    {isError ? <p style={{color:"red"}}>Login error</p> : ''}
+                    {isError ? <p style={{ color: "red" }}>Login error</p> : ''}
                     <CardActions>
                         <Button
                             variant="contained"
@@ -157,6 +169,7 @@ const Login = (props) => {
                             to="/register">
                             Go back to Register
                         </Button>
+                        <FacebookLogin sendToken={sendTokenFacebookLogin} />
                     </CardActions>
                 </Card>
             </form>
