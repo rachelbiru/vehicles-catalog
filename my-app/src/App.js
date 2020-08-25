@@ -21,6 +21,8 @@ const App = (props) => {
     setToken(token)
   }
 
+
+
   return (
     <MuiThemeProvider>
       <CssBaseline />
@@ -30,6 +32,7 @@ const App = (props) => {
           <Route exact path='/register' render={() => <Register getToken={getToken} />} />
           <Route exact path='/login' render={() => <Login getToken={getToken} />} />
           {token ? <Route exact path='/cars-catalog' render={() => <GetVehicles token={token} />} /> : <Redirect to="/" />}
+          {localStorage.token ? <Route exact path='/cars-catalog' render={() => <GetVehicles token={localStorage.token} />} /> : <Redirect to="/" />}
 
         </Switch>
       </Router>

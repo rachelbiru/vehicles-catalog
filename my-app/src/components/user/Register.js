@@ -81,7 +81,8 @@ const Register = (props) => {
                 if (res.status === 200) {
                     alert('A name was submitted: ' + data.name);
                     console.log(res)
-                    history.push('login')
+                    history.push('login');
+                    
                 } else {
 
                 }

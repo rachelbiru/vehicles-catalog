@@ -33,6 +33,7 @@ const FacebookLogin = (props) => {
                     props.sendToken(accessToken)
                     setAuth(true)
                     history.push('cars-catalog')
+                    localStorage.setItem('token', accessToken)
 
                 } else {
                     console.log('post facebook user data not success')
