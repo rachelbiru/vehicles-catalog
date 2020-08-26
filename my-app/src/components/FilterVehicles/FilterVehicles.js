@@ -63,6 +63,7 @@ const FilterVehicles = ({vehicles}) => {
         else if (makeSelected && !modelSelected && !yearSelected){
             return filterVehiclesByMake
         }
+        
     }
 
     const disabled = !makeSelected

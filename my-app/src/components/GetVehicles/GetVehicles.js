@@ -15,7 +15,8 @@ const GetVehicles = ({token}) => {
     const authAxios = axios.create({
         baseURL: "/vehicles",
         headers:{
-            Authorization: `Bearer ${token}`
+            'x-access-token': token
+            // Authorization: `Bearer ${token}`
         }
     })
 
