@@ -49,10 +49,7 @@ const styles = theme => ({
               color: 'white',
               border: '#bc6752'
             },
-       
     }
-
-
 })
 
 /**
@@ -62,7 +59,6 @@ const styles = theme => ({
 
 
 const Login = (props) => {
-    // const classes = useStyles();
     const { classes } = props
 
     const [email, setEmail] = useState('');
@@ -109,8 +105,6 @@ const Login = (props) => {
                     setLogin(true)
                     history.push('cars-catalog')
                     localStorage.setItem('token', res.data.token)
-
-
                 }
             })
             .catch(err => {
@@ -124,7 +118,6 @@ const Login = (props) => {
             isButtonDisabled || handleLogin();
         }
     };
-
 
 
     return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ShowVehicles from '../ShowVehicles/ShowVehicles';
-import './filterVehicles.css';
+import '../../App.css'
 
 /**
 * @author
@@ -68,8 +68,10 @@ const FilterVehicles = ({vehicles}) => {
     const disabled = !makeSelected
 
     return (
-      
-
+        <div className="filter">
+            <video autoPlay muted loop id="myVideo">
+                <source src="https://media.istockphoto.com/videos/driving-into-the-sunset-video-id635808578" type="video/mp4" />
+            </video>
 
             <div className='content'>
                 <div className='divTitle'>
@@ -115,6 +117,7 @@ const FilterVehicles = ({vehicles}) => {
                 <ShowVehicles finalFilter={finalFilter} />
             </div>
 
+        </div>
     )
 
 }

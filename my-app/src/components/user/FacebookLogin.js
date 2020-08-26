@@ -14,8 +14,6 @@ const FacebookLogin = (props) => {
     const [accessToken, setAccessToken] = useState(false);
     const history = useHistory();
 
-
-
     const componentClicked = () => {
         console.log('facebook btn clicked')
     }

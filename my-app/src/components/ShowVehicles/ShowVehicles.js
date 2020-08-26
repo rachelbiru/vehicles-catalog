@@ -6,6 +6,7 @@ import '../../App.css'
 **/
 
 const ShowVehicles = ({finalFilter}) => {
+    console.log(finalFilter)
     return (
     
             <div className='tableVehicals'>
