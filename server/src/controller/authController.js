@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config');
 const fetch = require('node-fetch')
 const verifyToken = require("./verifyToken");
-
+const generateJWT = require('../utils/auth')
 const User = require("../models/User");
 
 
@@ -28,10 +28,8 @@ router.post('/register', async (req, res, next) => {
                 user.password = await user.encryptPassword(user.password);
                 await user.save();
 
-                const token = jwt.sign({ id: user._id }, config.secret, {
-                    expiresIn: 60 * 60 * 24
-                })
-                res.json({ auth: true, token: token })
+                const token = await generateJWT(user)
+                res.json({ auth: true, token })
 
             } else {
                 res.status(404).json({ error: 'User already exist' })
@@ -71,9 +69,7 @@ router.post('/login', async (req, res, next) => {
         res.status(401).json({ auth: false, token: null })
     }
 
-    const token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 60 * 60 * 24
-    });
+    const token = await generateJWT(user)
 
     res.json({ auth: true, token })
 })
