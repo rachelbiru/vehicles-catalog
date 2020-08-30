@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import FacebookLoginBtn from 'react-facebook-login'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import './facebookStyle.css';
 
 /**
 * @author
@@ -50,12 +49,7 @@ const FacebookLogin = (props) => {
             autoLoad={false}
             fields="name,email,picture"
             onClick={componentClicked}
-            callback={responseFacebook}
-            icon="fa-facebook"
-            cssClass="loginFacebook"
-            textButton = "&nbsp;&nbsp;Sign In with Facebook"                                                                
-
-        />
+            callback={responseFacebook} />
     )
 
     return (
